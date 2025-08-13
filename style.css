@@ -1,5 +1,55 @@
 body {
     margin: 0;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fondo con blur */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("media/background.webp");
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1; /* Ponerlo detrás del contenido */
+}
+
+.contentimg {
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  width: 100%; /* Opcional, pero recomendable para asegurar que el flexbox funcione */
+  margin: 0; /* Elimina cualquier margen superior por defecto */
+  padding: 20px 0; /* Agrega un poco de espacio arriba y abajo */
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Inicia 20px abajo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Termina en su posición original */
+  }
+}
+.contentimg img {
+  opacity: 0; /* Inicia el logo invisible */
+  animation: fade-in-up 1s forwards; /* Aplica la animación */
+}
+h1 {
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+}
+
+body {
+    margin: 0;
     padding: 0;
     background: #000;
     color: #f3f3f3;
